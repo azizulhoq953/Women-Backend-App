@@ -28,7 +28,7 @@
 
 
 import cron from "node-cron";
-import MenstrualHealth from "../models/question.model";
+import MenstrualHealth from "../models/MenstrualHealth";
 import { createMenstrualNotification } from "./notification"; // Import the notification creation function
 
 // Cron job that runs daily at midnight
