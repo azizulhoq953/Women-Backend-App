@@ -179,4 +179,3 @@ const createMenstrualNotification = async (userId, message) => {
     }
 };
 exports.createMenstrualNotification = createMenstrualNotification;
-//# sourceMappingURL=notification.js.map

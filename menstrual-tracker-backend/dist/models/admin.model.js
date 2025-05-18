@@ -73,4 +73,3 @@ AdminSchema.pre("save", async function (next) {
 });
 // Create Admin model
 exports.default = mongoose_1.default.model("Admin", AdminSchema);
-//# sourceMappingURL=admin.model.js.map

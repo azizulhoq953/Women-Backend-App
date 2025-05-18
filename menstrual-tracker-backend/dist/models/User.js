@@ -97,4 +97,3 @@ const UserSchema = new mongoose_1.Schema({
     savedPosts: [{ type: mongoose_1.Schema.Types.ObjectId, ref: "Post" }], // ✅ Reference to Post model
 }, { timestamps: true });
 exports.default = mongoose_1.default.model("User", UserSchema);
-//# sourceMappingURL=User.js.map

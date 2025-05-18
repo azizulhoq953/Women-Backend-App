@@ -55,4 +55,3 @@ node_cron_1.default.schedule("0 0 * * *", async () => {
         console.error("Error in cron job:", error);
     }
 });
-//# sourceMappingURL=schedulejob.js.map

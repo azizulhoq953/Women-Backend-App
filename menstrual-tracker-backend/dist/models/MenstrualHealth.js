@@ -57,4 +57,3 @@ MenstrualHealthSchema.virtual('nextMenstrualStartDate').get(function () {
 });
 // Register the model with the virtual field
 exports.default = mongoose_1.default.model("MenstrualHealth", MenstrualHealthSchema);
-//# sourceMappingURL=MenstrualHealth.js.map

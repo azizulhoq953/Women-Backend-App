@@ -50,4 +50,3 @@ const CounselorSchema = new mongoose_1.Schema({
     ratings: { type: Number, default: 0 }, // Default rating 0
 }, { timestamps: true });
 exports.default = mongoose_1.default.model("Counselor", CounselorSchema);
-//# sourceMappingURL=Counselor.js.map

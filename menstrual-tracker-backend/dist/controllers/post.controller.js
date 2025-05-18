@@ -600,4 +600,3 @@ const getPostFollowers = async (req, res) => {
     }
 };
 exports.getPostFollowers = getPostFollowers;
-//# sourceMappingURL=post.controller.js.map

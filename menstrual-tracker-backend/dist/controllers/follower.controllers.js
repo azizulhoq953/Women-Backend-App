@@ -102,4 +102,3 @@ const getFollowing = async (req, res) => {
     }
 };
 exports.getFollowing = getFollowing;
-//# sourceMappingURL=follower.controllers.js.map

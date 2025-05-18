@@ -138,4 +138,3 @@ const getCart = async (req, res) => {
     }
 };
 exports.getCart = getCart;
-//# sourceMappingURL=addtocart.js.map

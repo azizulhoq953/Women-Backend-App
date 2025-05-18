@@ -126,4 +126,3 @@ const updateMenstrualHealth = async (req, res) => {
     }
 };
 exports.updateMenstrualHealth = updateMenstrualHealth;
-//# sourceMappingURL=question.controller.js.map

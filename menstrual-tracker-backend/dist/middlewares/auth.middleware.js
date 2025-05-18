@@ -135,4 +135,3 @@ const authenticateAdmin = (req, res, next) => {
     }
 };
 exports.authenticateAdmin = authenticateAdmin;
-//# sourceMappingURL=auth.middleware.js.map

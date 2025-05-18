@@ -85,4 +85,3 @@ const getPartnerProfile = async (req, res) => {
     }
 };
 exports.getPartnerProfile = getPartnerProfile;
-//# sourceMappingURL=partnerController.js.map

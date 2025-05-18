@@ -111,4 +111,3 @@ router.delete("/admin/counselor/:id", counseller_1.deleteCounselor);
 router.put("/update/:id", auth_middleware_1.authMiddleware, counseller_1.updateCounselor); // Admin deletes counselor
 router.put("/password/:id", counseller_1.updateCounselorPassword); // Admin deletes counselor
 exports.default = router;
-//# sourceMappingURL=index.js.map

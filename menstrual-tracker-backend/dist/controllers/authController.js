@@ -217,4 +217,3 @@ const updateProfile = async (req, res) => {
     }
 };
 exports.updateProfile = updateProfile;
-//# sourceMappingURL=authController.js.map

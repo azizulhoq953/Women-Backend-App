@@ -399,4 +399,3 @@ const GetAllPostsAdmin = async (req, res) => {
     }
 };
 exports.GetAllPostsAdmin = GetAllPostsAdmin;
-//# sourceMappingURL=mentalhelta.js.map

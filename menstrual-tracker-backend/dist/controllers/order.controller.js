@@ -28,4 +28,3 @@ const placeOrder = async (req, res) => {
     }
 };
 exports.placeOrder = placeOrder;
-//# sourceMappingURL=order.controller.js.map

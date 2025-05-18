@@ -50,4 +50,3 @@ const AdminPostSchema = new mongoose_1.Schema({
     followers: [{ type: mongoose_1.Schema.Types.ObjectId, ref: "User" }],
 }, { timestamps: true });
 exports.default = mongoose_1.default.model("Apost", AdminPostSchema);
-//# sourceMappingURL=admin.Post.js.map

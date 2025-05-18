@@ -42,4 +42,3 @@ const ProductSchema = new mongoose_1.Schema({
     images: { type: [String], required: true },
 }, { timestamps: true });
 exports.default = mongoose_1.default.model("Product", ProductSchema);
-//# sourceMappingURL=Product.js.map

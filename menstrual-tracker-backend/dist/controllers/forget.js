@@ -141,4 +141,3 @@ const resetPassword = async (req, res) => {
     }
 };
 exports.resetPassword = resetPassword;
-//# sourceMappingURL=forget.js.map

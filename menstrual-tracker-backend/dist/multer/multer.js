@@ -88,4 +88,3 @@ const uploadSingleImage = (p0) => (0, multer_1.default)({
     fileFilter,
 }).single("image"); // For single image upload, if you need it later
 exports.uploadSingleImage = uploadSingleImage;
-//# sourceMappingURL=multer.js.map

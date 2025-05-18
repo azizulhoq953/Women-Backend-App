@@ -444,4 +444,3 @@ const GetAllPostsAdmin = async (req, res) => {
     }
 };
 exports.GetAllPostsAdmin = GetAllPostsAdmin;
-//# sourceMappingURL=admin.post.controller.js.map

@@ -314,4 +314,3 @@ const updateCounselorPassword = async (req, res) => {
     }
 };
 exports.updateCounselorPassword = updateCounselorPassword;
-//# sourceMappingURL=counseller.js.map

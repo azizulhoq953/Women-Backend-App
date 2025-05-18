@@ -473,4 +473,3 @@ const deleteOrder = async (req, res) => {
     }
 };
 exports.deleteOrder = deleteOrder;
-//# sourceMappingURL=adminController.js.map
