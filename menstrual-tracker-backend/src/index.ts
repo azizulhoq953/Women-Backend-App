@@ -26,13 +26,12 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 const uploadsDir = path.join(process.cwd(), 'uploads', 'ProductImage');
 app.use('/uploads', express.static(uploadsDir));
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
-// Static file serving (uploads)
-// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API routes
 app.use("/api", router);
-
+app.get('/', (req, res) => {
+  res.send('✅ Server is beep! Backend is live.');
+});
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
