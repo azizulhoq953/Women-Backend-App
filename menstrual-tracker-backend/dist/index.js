@@ -43,7 +43,7 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 // CORS middleware
 const corsOptions = {
-    origin: "http://localhost:3000", // Allow frontend running on port 3001
+    origin: "https://nirbhoya.org", // Allow frontend running on port 3001
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow GET and POST methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers (including Authorization)
     credentials: true, // Allow credentials (cookies, authorization headers)
