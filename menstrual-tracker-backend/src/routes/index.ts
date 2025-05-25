@@ -44,7 +44,7 @@ router.put("/users/Posts/:id", authMiddleware, uploadMultipleImages(),updatePost
 router.delete("/users/Posts/:postId", authMiddleware, deletePost);
 router.post("/orders", authMiddleware, addToCart);
 router.get("/users/order",authMiddleware,getCart)
-router.get("/admin/all-orders",getAllOrders)
+router.get("/admin/all-orders",authMiddleware,getAllOrders)
 router.delete("/admin/remove-order/:id",deleteOrder)
 router.get("/admin/mental", getMentalHealthPosts);
 // router.delete("/admin/mental/:id", deleteMentalHealthPost);
