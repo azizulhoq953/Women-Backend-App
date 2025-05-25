@@ -276,6 +276,40 @@ export const createPost = async (req: AuthenticatedRequest, res: Response): Prom
   };
   
 
+  // export const getUserPosts = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+  //   try {
+  //     // Check if the user is authenticated
+  //     if (!req.user) {
+  //       res.status(401).json({ error: "Unauthorized" });
+  //       return;
+  //     }
+  
+  //     // Get posts by the authenticated user
+  //     const posts = await Post.find({ userId: req.user.id });
+  
+  //     // If no posts found, send a response indicating this
+  //     if (posts.length === 0) {
+  //       res.status(404).json({ message: "No posts found" });
+  //       return;
+  //     }
+  
+  //     // Populate the category of each post (optional, if needed)
+  //     const populatedPosts = await Post.find({ userId: req.user.id }).populate("category");
+  
+  //     // Send the list of posts with populated categories
+  //     res.status(200).json({
+  //       message: "User's posts retrieved successfully",
+  //       posts: populatedPosts,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error fetching posts:", error);
+  //     res.status(500).json({
+  //       error: "Server error",
+  //       details: error instanceof Error ? error.message : "Unknown error",
+  //     });
+  //   }
+  // };
+  
   export const getUserPosts = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
     try {
       // Check if the user is authenticated
@@ -293,13 +327,22 @@ export const createPost = async (req: AuthenticatedRequest, res: Response): Prom
         return;
       }
   
-      // Populate the category of each post (optional, if needed)
-      const populatedPosts = await Post.find({ userId: req.user.id }).populate("category");
+      // Construct the base URL for image paths
+      const baseUrl = `${req.protocol}://${req.get('host')}`;
   
-      // Send the list of posts with populated categories
+      // Map over the posts to include image URLs
+      const postsWithImageUrls = posts.map(post => {
+        const imageUrls = post.images.map((imagePath: any) => `${baseUrl}/${imagePath}`);
+        return {
+          ...post.toObject(),
+          imageUrls,
+        };
+      });
+  
+      // Send the list of posts with image URLs
       res.status(200).json({
         message: "User's posts retrieved successfully",
-        posts: populatedPosts,
+        posts: postsWithImageUrls,
       });
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -493,18 +536,51 @@ export const getCommunityPosts = async (req: Request, res: Response) => {
 
 //get all post
 export const getAllPosts = async (req: Request, res: Response): Promise<void> => {
-    try {
-        const posts = await Post.find()
-            .sort({ createdAt: -1 })
-            .populate("userId", "name email") // Populating userId with specific fields (name, email)
-            .populate("likes", "name email") // Populating likes with specific fields (name, email)
-            .populate("category", "name"); // Populating category with the name field
+  try {
+    // Fetch all posts, sorted by creation date, with populated fields
+    const posts = await Post.find()
+      .sort({ createdAt: -1 })
+      .populate("userId", "name email") // Populating userId with name and email
+      .populate("likes", "name email") // Populating likes with name and email
+      .populate("category", "name"); // Populating category with name
 
-        res.json(posts);
-    } catch (error) {
-        res.status(500).json({ error: "Server error", details: (error as Error).message });
+    // Check if posts exist
+    if (posts.length === 0) {
+      res.status(404).json({ message: "No posts found" });
+      return;
     }
+
+    // Construct the base URL for image paths
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+
+    // Map over the posts to include image URLs
+    const postsWithImageUrls = posts.map(post => {
+      const imageUrls = post.images.map((imagePath: string) => {
+        // Ensure the image path is relative to the 'uploads/ProductImage' directory
+        const relativePath = imagePath.replace(/^.*uploads\//, 'uploads/');
+        return `${baseUrl}/${relativePath}`;
+      });
+      return {
+        ...post.toObject(),
+        imageUrls,
+      };
+    });
+
+    // Send the list of posts with image URLs
+    res.status(200).json({
+      message: "All posts retrieved successfully",
+      posts: postsWithImageUrls,
+    });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({
+      error: "Server error",
+      details: error instanceof Error ? error.message : "Unknown error",
+    });
+  }
 };
+
+
 
 
 

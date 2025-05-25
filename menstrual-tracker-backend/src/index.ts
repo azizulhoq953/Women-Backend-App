@@ -11,14 +11,17 @@ connectDB();
 const app = express();
 
 // CORS middleware
-const corsOptions = {
-  origin: "https://nirbhoya.org", // Allow frontend running on port 3001
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allow GET and POST methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers (including Authorization)
-  credentials: true, // Allow credentials (cookies, authorization headers)
-};
+// const corsOptions = {
+//   origin: "https://nirbhoya.org", // Allow frontend running on port 3001
+//   methods: ["GET", "POST", "PUT", "DELETE"], // Allow GET and POST methods
+//   allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers (including Authorization)
+//   credentials: true, // Allow credentials (cookies, authorization headers)
+// };
+app.use(cors({
+  origin: '*', // Allow all origins (adjust as needed for security)
+}));
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // Body parsers
 app.use(express.json({ limit: '10mb' }));
